@@ -8,6 +8,7 @@ namespace ELABORAZIONE_FILE_CSV
     {
         public string path; //nome del file
         public int numerocampi;
+        public int lunghezzamassima;
         public Form1()
         {
             InitializeComponent();
@@ -47,7 +48,7 @@ namespace ELABORAZIONE_FILE_CSV
         }
 
         //FUNZIONE 2: CONTACAMPI
-        public int ContaCampi(char a = ";")
+        public int ContaCampi(char a = ';')
         {
             string[] record = File.ReadAllLines(path);
             numerocampi = record[0].Split(a).Length;
@@ -57,6 +58,33 @@ namespace ELABORAZIONE_FILE_CSV
         private void button2_Click(object sender, EventArgs e)
         {
             ContaCampi();
+        }
+
+        //FUNZIONE 3: LUNGHEZZA MAX RECORD
+        public int LunghezzaMaxRecord(char a = ';')
+        {
+            string[] record = File.ReadAllLines(path);
+            for (int i = 0; i < record.Length; i++)
+            {
+                string[] campi = record[i].Split(a);
+                for (int j = 0; j < numerocampi; j++)
+                {
+                    if (campi[j].Length > lunghezzamassima)
+                    {
+                        lunghezzamassima = campi[j].Length;
+                    }
+                    if (campi[j].Length == 0)
+                    {
+                        break;
+                    }
+                }
+            }
+            return lunghezzamassima;    
+        }
+        //BOTTONE FUNZIONE 3
+        private void button3_Click(object sender, EventArgs e)
+        {
+            LunghezzaMaxRecord();
         }
     }
 }
