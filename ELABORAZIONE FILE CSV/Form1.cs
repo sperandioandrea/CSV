@@ -148,5 +148,43 @@ namespace ELABORAZIONE_FILE_CSV
         {
 
         }
+
+
+        //FUNZIONE 7: RICERCA
+        public bool ricerca()
+        {
+            bool ricerca = false;
+            string[] record = File.ReadAllLines(path);
+            for (int i = 0; i < record.Length;i++)
+            {
+                string[] campi = record[i].Split(';');
+                if (checkBox1.Checked == true) 
+                { 
+                    if (campi[0].ToLower() == textBox1.Text.ToLower())
+                    {
+                        ricerca = true;
+                        break;
+                    }
+                    if (checkBox2.Checked == true)
+                    {
+                        if (campi[1].ToLower() == textBox2.Text.ToLower())
+                        {
+                            ricerca = true;
+                            break;
+                        }
+                    }
+                    if (checkBox3.Checked == true)
+                    {
+                        if (campi[2].ToLower() == textBox2.Text.ToLower())
+                        {
+                            ricerca = true;
+                            break;
+                        }
+                    }
+                }
+                return ricerca;
+            }
+        }
+        //BOTTONE FUNZIONE 7
     }
 }
