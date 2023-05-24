@@ -20,25 +20,6 @@ namespace ELABORAZIONE_FILE_CSV
             
         }
 
-        //FUNZIONE VISUALIZZA
-        public void Visualizza()
-        {
-            dataGridView1.Rows.Clear();
-            string[] record = File.ReadAllLines(path);
-            for (int i = 0; i < record.Length; i++)
-            {
-                string[] campi = record[i].Split(';');
-                if (campi[1] == "")
-                {
-                    dataGridView1.Rows.Add(campi[0]);
-                }
-                else
-                {
-                    dataGridView1.Rows.Add(campi[0], campi[1], campi[2]);
-                }
-            }
-        }
-
         //FUNZIONE 1: AGGIUNTA
         public void Aggiunta(char a = ';')
         {
@@ -127,8 +108,42 @@ namespace ELABORAZIONE_FILE_CSV
             NumeroSpazi();
         }
 
+        //FUNZIONE 5: AGGIUNGERE UN RECORD IN CODA
+        public void AggiuntaCoda(string coda1, string cosa 2, string coda3, char a = ',')
+        {
+            if (File.Exists(path))
+            {
+                using (StreamWriter sw = new StreamWriter(path, true))
+                {
+                    sw.WriteLine(coda1 + a + coda2 + a + coda3 + a);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Non esiste il file"),
+            }
+        }
 
 
+        //FUNZIONE 6: VISUALIZZARE DEI DATI TRAMITE 3 CAMPI A SCELTA
+        public void Visualizza()
+        {
+            dataGridView1.Rows.Clear();
+            string[] record = File.ReadAllLines(path);
+            for (int i = 0; i < record.Length; i++)
+            {
+                string[] campi = record[i].Split(';');
+                if (campi[1] == "")
+                {
+                    dataGridView1.Rows.Add(campi[0]);
+                }
+                else
+                {
+                    dataGridView1.Rows.Add(campi[0], campi[1], campi[2]);
+                }
+            }
+        }
+        //DATAGRIDVIEW FUNZIONE 6
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
