@@ -20,6 +20,24 @@ namespace ELABORAZIONE_FILE_CSV
             
         }
 
+        //FUNZIONE VISUALIZZA
+        public void Visualizza()
+        {
+            dataGridView1.Rows.Clear();
+            string[] record = File.ReadAllLines(path);
+            for (int i = 0; i < record.Length; i++)
+            {
+                string[] campi = record[i].Split(';');
+                if (campi[1] == "")
+                {
+                    dataGridView1.Rows.Add(campi[0]);
+                }
+                else
+                {
+                    dataGridView1.Rows.Add(campi[0], campi[1], campi[2]);
+                }
+            }
+        }
 
         //FUNZIONE 1: AGGIUNTA
         public void Aggiunta(char a = ';')
@@ -58,6 +76,7 @@ namespace ELABORAZIONE_FILE_CSV
         private void button2_Click(object sender, EventArgs e)
         {
             ContaCampi();
+            MessageBox.Show("Il numero dei campi è: " + numerocampi);
         }
 
         //FUNZIONE 3: LUNGHEZZA MAX RECORD
@@ -85,6 +104,14 @@ namespace ELABORAZIONE_FILE_CSV
         private void button3_Click(object sender, EventArgs e)
         {
             LunghezzaMaxRecord();
+            MessageBox.Show("La lunghezza massima dei record presenti è: " + lunghezzamassima);
+        }
+
+       
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
