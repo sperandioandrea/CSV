@@ -107,7 +107,27 @@ namespace ELABORAZIONE_FILE_CSV
             MessageBox.Show("La lunghezza massima dei record presenti è: " + lunghezzamassima);
         }
 
-       
+        //FUNZIONE 4: INSERIMENTO NUMERO DI SPAZI NEL RECORD
+        public void NumeroSpazi()
+        {
+            string[] record = File.ReadAllLines(path);
+            using (StreamWriter sw = new StreamWriter(path))
+            {
+                for (int i = 0; i < record.Length; i++)
+                {
+                    record[i] = record[i].PadRight(200);   
+                    sw.WriteLine(record[i]);
+                }
+            }
+            
+        }
+        //BOTTONE FUNZIONE 4
+        private void button4_Click(object sender, EventArgs e)
+        {
+            NumeroSpazi();
+        }
+
+
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
