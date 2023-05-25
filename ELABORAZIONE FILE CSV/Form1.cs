@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using System.IO;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace ELABORAZIONE_FILE_CSV
 {
@@ -109,7 +110,7 @@ namespace ELABORAZIONE_FILE_CSV
         }
 
         //FUNZIONE 5: AGGIUNGERE UN RECORD IN CODA
-        public void AggiuntaCoda(string coda1, string cosa 2, string coda3, char a = ',')
+        public void AggiuntaCoda(string coda1, string coda2, string coda3, char a = ',')
         {
             if (File.Exists(path))
             {
@@ -120,10 +121,14 @@ namespace ELABORAZIONE_FILE_CSV
             }
             else
             {
-                MessageBox.Show("Non esiste il file"),
+                MessageBox.Show("Non esiste il file");
             }
         }
-
+        //BOTTONE FUNZIONE 5
+        private void button5_Click(object sender, EventArgs e)
+        {
+            AggiuntaCoda(textBox3.Text, textBox4.Text, textBox5.Text);
+        }
 
         //FUNZIONE 6: VISUALIZZARE DEI DATI TRAMITE 3 CAMPI A SCELTA
         public void Visualizza()
@@ -151,7 +156,7 @@ namespace ELABORAZIONE_FILE_CSV
 
 
         //FUNZIONE 7: RICERCA
-        public bool ricerca()
+        public bool Ricerca()
         {
             bool ricerca = false;
             string[] record = File.ReadAllLines(path);
@@ -186,5 +191,19 @@ namespace ELABORAZIONE_FILE_CSV
             }
         }
         //BOTTONE FUNZIONE 7
+        private void button6_Click(object sender, EventArgs e)
+        {
+            Ricerca();
+        }
+
+        //FUNZIONE 8: MODIFICA RECORD
+
+        //BOTTONE FUNZIONE 8
+        private void button7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+       
     }
 }
