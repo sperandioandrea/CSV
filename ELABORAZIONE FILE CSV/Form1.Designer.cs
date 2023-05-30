@@ -50,13 +50,15 @@
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.button8 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(57, 140);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(173, 31);
             this.button1.TabIndex = 1;
@@ -89,7 +91,7 @@
             // button4
             // 
             this.button4.Location = new System.Drawing.Point(57, 339);
-            this.button4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button4.Margin = new System.Windows.Forms.Padding(4);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(173, 31);
             this.button4.TabIndex = 4;
@@ -105,7 +107,7 @@
             this.Colonna2,
             this.Colonna3});
             this.dataGridView1.Location = new System.Drawing.Point(320, 47);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.Size = new System.Drawing.Size(427, 495);
@@ -254,12 +256,31 @@
             this.textBox5.Size = new System.Drawing.Size(100, 22);
             this.textBox5.TabIndex = 19;
             // 
+            // textBox6
+            // 
+            this.textBox6.Location = new System.Drawing.Point(783, 509);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(184, 22);
+            this.textBox6.TabIndex = 20;
+            // 
+            // button8
+            // 
+            this.button8.Location = new System.Drawing.Point(811, 467);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(121, 23);
+            this.button8.TabIndex = 21;
+            this.button8.Text = "CANC. LOGICA";
+            this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Highlight;
             this.ClientSize = new System.Drawing.Size(1001, 603);
+            this.Controls.Add(this.button8);
+            this.Controls.Add(this.textBox6);
             this.Controls.Add(this.textBox5);
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.textBox3);
@@ -279,7 +300,7 @@
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -312,6 +333,8 @@
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.Button button8;
     }
 }
 

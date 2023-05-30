@@ -156,39 +156,36 @@ namespace ELABORAZIONE_FILE_CSV
 
 
         //FUNZIONE 7: RICERCA
-        public bool Ricerca()
+        public string Ricerca()
         {
-            bool ricerca = false;
             string[] record = File.ReadAllLines(path);
-            for (int i = 0; i < record.Length;i++)
+            for (int i = 0; i < record.Length; i++)
             {
                 string[] campi = record[i].Split(';');
                 if (checkBox1.Checked == true) 
                 { 
                     if (campi[0].ToLower() == textBox1.Text.ToLower())
                     {
-                        ricerca = true;
-                        break;
+                        return record[i];
                     }
                     if (checkBox2.Checked == true)
                     {
                         if (campi[1].ToLower() == textBox2.Text.ToLower())
                         {
-                            ricerca = true;
-                            break;
+                            return record[i];
                         }
                     }
                     if (checkBox3.Checked == true)
                     {
                         if (campi[2].ToLower() == textBox2.Text.ToLower())
                         {
-                            ricerca = true;
-                            break;
+                            return record[i];
                         }
                     }
                 }
-                return ricerca;
+                
             }
+            return "";
         }
         //BOTTONE FUNZIONE 7
         private void button6_Click(object sender, EventArgs e)
@@ -203,7 +200,35 @@ namespace ELABORAZIONE_FILE_CSV
         {
 
         }
+        public int ncampi;
 
-       
+        //FUNZIONE 9: CANCELLAZIONE LOGICA
+        public bool CancellazioneLogica(string cancella)
+        {
+            bool c = false;
+            string[] record = File.ReadAllLines(path);
+            using (StreamWriter sw = new StreamWriter(path))
+            {
+                for (int i = 0; i < record.Length; i++)
+                {
+                    string[] campi = record[i].Split(';');
+                    if (cancella.ToLower() == campi[0].ToLower())
+                    {
+                        campi[ncampi - 1] = "1";
+                        record[i] = String.Join(";", campi);
+                        c = true;
+                        break;
+                    }
+                }
+                for (int i = 0; i < record.Length; i++)
+                    sw.WriteLine(record[i]);
+            }
+            return c;
+        }
+        //BOTTONE FUNZIONE 9
+        private void button8_Click(object sender, EventArgs e)
+        {
+            CancellazioneLogica(textBox6.Text);
+        }
     }
 }
