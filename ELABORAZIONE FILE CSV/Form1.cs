@@ -148,6 +148,7 @@ namespace ELABORAZIONE_FILE_CSV
                 }
             }
         }
+
         //DATAGRIDVIEW FUNZIONE 6
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -229,6 +230,17 @@ namespace ELABORAZIONE_FILE_CSV
         private void button8_Click(object sender, EventArgs e)
         {
             CancellazioneLogica(textBox6.Text);
+            MessageBox.Show("Elemento cancellato: ");
+        }
+        //BOTTONE DATAGRID VISUALIZZA
+        private void button9_Click(object sender, EventArgs e)
+        {
+            Visualizza();
+        }
+
+        private void textBox6_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
